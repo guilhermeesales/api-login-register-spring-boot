@@ -14,7 +14,6 @@ public class CursoService {
     @Autowired
     private CursoRepository cursoRepository;
 
-
     @Transactional
     public Curso create(Curso obj) {
         Curso procurarPeloNome = cursoRepository.findByNome(obj.getNome().toLowerCase());

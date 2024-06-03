@@ -64,7 +64,7 @@ public class Usuario {
 
     @JsonProperty(access = Access.WRITE_ONLY)
     @Pattern(regexp = "^(?=.*[!@#$%^&*()\\-+=])(?=.*[A-Z]).*$|^.*(?=.*[A-Z]).*$",
-             message = "A senha deve conter pelo menos uma letra maiúscula e um caractere especial")
+             message = "A senha deve conter pelo menos uma letra maiúscula ou um caractere especial")
     @Column(name = "senha", length = 60, nullable = false, unique = false)
     @NotBlank(groups = {CreateUsuario.class, UpdateUsuario.class}, message = "O campo senha não pode estar em branco")
     @Size(groups = {CreateUsuario.class, UpdateUsuario.class}, min = 7, max = 60, message = "A senha deve ter entre 7 e 60 caracteres")

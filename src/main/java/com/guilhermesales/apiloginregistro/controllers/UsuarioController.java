@@ -3,6 +3,7 @@ package com.guilhermesales.apiloginregistro.controllers;
 import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -42,12 +43,14 @@ public class UsuarioController {
 
     @PostMapping("/registration")
     @Validated(CreateUsuario.class)
-    public ResponseEntity<Void> create(@Valid @RequestBody Usuario obj) {
+    public DefaultError create(@Valid @RequestBody Usuario obj) {
         this.usuarioService.create(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
             .path("/{id}").buildAndExpand(obj.getId()).toUri();
         
-        return ResponseEntity.created(uri).build();
+        ResponseEntity.created(uri).build();
+
+        return new DefaultError(HttpStatus.CREATED.value(), "Usuário cadastrado com sucesso");
 
     }
 
