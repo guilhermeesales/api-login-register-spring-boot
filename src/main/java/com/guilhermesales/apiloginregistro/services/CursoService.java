@@ -8,6 +8,8 @@ import com.guilhermesales.apiloginregistro.repositories.CursoRepository;
 
 import jakarta.transaction.Transactional;
 
+import java.util.List;
+
 @Service
 public class CursoService {
     
@@ -27,6 +29,12 @@ public class CursoService {
         obj = this.cursoRepository.save(obj);
         return obj;
         
+
+    }
+
+
+    public List<Curso> findAll() {
+        return this.cursoRepository.findAll();
 
     }
 
