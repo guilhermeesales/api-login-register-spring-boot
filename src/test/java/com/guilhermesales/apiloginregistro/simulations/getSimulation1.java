@@ -23,10 +23,10 @@ public class getSimulation1 extends Simulation {
                     .check(status().is(200))); // Valida se o status é 200
 
     {
-        // Configuração de carga: 1000 usuários simultâneos
+        // Configuração de carga: 5000 usuários simultâneos
         setUp(
                 scenario.injectOpen(
-                        atOnceUsers(5000) // 1000 usuários simultâneos
+                        atOnceUsers(5000) // 5000 usuários simultâneos
                 )
         ).protocols(httpProtocol);
     }

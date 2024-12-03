@@ -31,7 +31,7 @@ public class Curso {
     @Column(name = "id", unique = true)
     private Long id;
 
-    @Column(name = "nome", length = 50, nullable = false, unique = true)
+    @Column(name = "nome", length = 50, nullable = false, unique = false)
     @NotEmpty(groups = CreateCurso.class, message = "Por favor insira um nome para o curso")
     private String nome;
 
